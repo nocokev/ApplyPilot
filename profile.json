@@ -1,0 +1,93 @@
+{
+  "personal": {
+    "full_name": "Kevin Prokop",
+    "preferred_name": "Kevin",
+    "email": "kevin.prokop@gmail.com",
+    "password": "",
+    "phone": "970-556-1580",
+    "address": "",
+    "city": "Longmont",
+    "province_state": "CO",
+    "country": "United States",
+    "postal_code": "80501",
+    "linkedin_url": "https://www.linkedin.com/in/kevinprokop",
+    "github_url": "https://github.com/nocokev",
+    "portfolio_url": "",
+    "website_url": ""
+  },
+  "work_authorization": {
+    "legally_authorized_to_work": "Yes",
+    "require_sponsorship": "No",
+    "work_permit_type": ""
+  },
+  "availability": {
+    "earliest_start_date": "Immediately",
+    "available_for_full_time": "Yes",
+    "available_for_contract": "No"
+  },
+  "compensation": {
+    "salary_expectation": "130000",
+    "salary_currency": "USD",
+    "salary_range_min": "100000",
+    "salary_range_max": "175000",
+    "currency_conversion_note": ""
+  },
+  "experience": {
+    "years_of_experience_total": "12",
+    "education_level": "Master's Degree",
+    "current_job_title": "Owner / Operator",
+    "current_company": "Home Team Cleaning LLC",
+    "target_role": "Operations Manager"
+  },
+  "skills_boundary": {
+    "operations": ["Operations Management", "Process Improvement", "KPI/OKR Management", "Inventory Control", "Warehouse Management", "Production Planning", "Facility Commissioning", "Capital Project Management"],
+    "project_management": ["Program Management", "Project Management", "Cross-functional Delivery", "Stakeholder Management", "Risk Management", "Schedule Management", "Budget Management", "Milestone Tracking"],
+    "leadership": ["People Leadership", "Team Development", "Performance Management", "Onboarding & Training", "Executive Reporting", "Board-level Communication"],
+    "strategy": ["Business Strategy", "Operational Strategy", "Process Mapping", "SOP Development", "Workflow Design", "Business Case Development", "ROI Analysis"],
+    "tools": ["Excel", "Google Sheets", "PowerPoint", "Google Slides", "Google Workspace", "Slack", "Asana", "Jira", "Notion", "HubSpot", "AutoCAD", "JIRA"],
+    "technical": ["Mechanical Engineering", "GD&T", "CAD", "Financial Modeling", "Market Research", "Forecasting Models"]
+  },
+  "resume_facts": {
+    "preserved_companies": [
+      "Home Team Cleaning LLC",
+      "EasyVC",
+      "Industrial Physics",
+      "Iontra",
+      "Vita Inclinata Technologies",
+      "Cheeri Inc.",
+      "Rubicon Water",
+      "Hydro Gate",
+      "NuTrike",
+      "Dynamic Sealing Technologies",
+      "Metalex Manufacturing"
+    ],
+    "preserved_projects": [],
+    "preserved_school": "Colorado State University",
+    "real_metrics": [
+      "$2.2M+ revenue impact at Iontra",
+      "25% improvement in forecast accuracy at Iontra",
+      "30% increase in delivery speed at Iontra",
+      "Commissioned new manufacturing facility in 3 months at Vita Inclinata",
+      "98% reduction in inventory discrepancies at Vita Inclinata",
+      "$1M+ capital expenditure management at Vita Inclinata",
+      "20% reduction in lead times at Vita Inclinata",
+      "$1M new business secured at Rubicon Water",
+      "100% stakeholder satisfaction at Rubicon Water",
+      "30% increase in operational efficiency at Cheeri",
+      "60+ stakeholder interviews at Cheeri"
+    ]
+  },
+  "resume_format": {
+    "order": "reverse_chronological",
+    "max_pages": 1,
+    "bullet_style": "round",
+    "section_headers": "bold",
+    "font": "standard"
+  },
+  "eeo_voluntary": {
+    "gender": "Male",
+    "race_ethnicity": "Decline to self-identify",
+    "veteran_status": "I am not a protected veteran",
+    "disability_status": "I do not have a disability"
+  }
+}
