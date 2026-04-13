@@ -1,0 +1,137 @@
+# Kevin Prokop — ApplyPilot Search Configuration
+# Updated: April 2026
+
+queries:
+  # Tier 1 — Exact target titles
+  - query: "Director of Operations"
+    tier: 1
+  - query: "VP of Operations"
+    tier: 1
+  - query: "Senior Program Manager"
+    tier: 1
+  - query: "Senior Project Manager"
+    tier: 1
+  - query: "Chief of Staff"
+    tier: 1
+  - query: "Implementation Manager"
+    tier: 1
+
+  # Tier 2 — Strong matches
+  - query: "Operations Manager"
+    tier: 2
+  - query: "Program Manager"
+    tier: 2
+  - query: "Project Manager"
+    tier: 2
+  - query: "Strategy and Operations"
+    tier: 2
+  - query: "Implementation Consultant"
+    tier: 2
+  - query: "Business Value Strategist"
+    tier: 2
+  - query: "Insights and Operations Partner"
+    tier: 2
+  - query: "Category Manager"
+    tier: 2
+
+  # Tier 3 — Wide net
+  - query: "Regional Director of Operations"
+    tier: 3
+  - query: "Head of Operations"
+    tier: 3
+  - query: "Director of Delivery"
+    tier: 3
+  - query: "Senior Operations Manager"
+    tier: 3
+  - query: "Manufacturing Operations Manager"
+    tier: 3
+  - query: "Production Manager"
+    tier: 3
+
+locations:
+  - location: "Boulder, CO"
+    remote: false
+  - location: "Fort Collins, CO"
+    remote: false
+  - location: "Denver, CO"
+    remote: false
+  - location: "Longmont, CO"
+    remote: false
+  - location: "Broomfield, CO"
+    remote: false
+  - location: "Loveland, CO"
+    remote: false
+  - location: "Remote"
+    remote: true
+
+location:
+  accept_patterns:
+    - "Boulder"
+    - "Fort Collins"
+    - "Loveland"
+    - "Longmont"
+    - "Broomfield"
+    - "Lafayette"
+    - "Erie"
+    - "Denver"
+    - "Aurora"
+    - "Westminster"
+    - "Arvada"
+    - "Greeley"
+    - "Brighton"
+    - "Englewood"
+    - "Littleton"
+    - "Thornton"
+    - "Colorado"
+    - "CO"
+    - "Remote"
+    - "Anywhere"
+    - "United States"
+    - "US"
+    - "USA"
+  reject_patterns:
+    - "Colorado Springs"
+    - "Pueblo"
+    - "Grand Junction"
+    - "New York"
+    - "Seattle"
+    - "Los Angeles"
+    - "Chicago"
+    - "London"
+    - "India"
+    - "Philippines"
+    - "onsite only outside Colorado"
+
+country: "USA"
+
+boards:
+  - indeed
+  - linkedin
+  - glassdoor
+  - zip_recruiter
+  - google
+
+defaults:
+  results_per_site: 100
+  hours_old: 72
+
+exclude_titles:
+  - "intern"
+  - "internship"
+  - "co-op"
+  - "entry level"
+  - "junior"
+  - "clearance required"
+  - "TS/SCI"
+  - "systems engineer"
+  - "software engineer"
+  - "data engineer"
+  - "mechanical engineer"
+  - "electrical engineer"
+  - "food and beverage"
+  - "restaurant"
+  - "retail"
+  - "driver"
+  - "warehouse associate"
+
+salary_min: 100000
