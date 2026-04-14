@@ -124,7 +124,6 @@ boards:
   - indeed
   - linkedin
   - glassdoor
-  - zip_recruiter
   - google
 
 defaults:
@@ -151,3 +150,4 @@ exclude_titles:
   - "warehouse associate"
 
 salary_min: 100000
+
