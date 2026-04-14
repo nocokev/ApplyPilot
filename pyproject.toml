@@ -26,10 +26,12 @@ dependencies = [
     "python-dotenv>=1.0",
     "pyyaml>=6.0",
     "pandas>=2.0",
+    "python-jobspy>=1.1.80",
     ]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "ruff>=0.1"]
+full = ["python-jobspy>=1.1.80"]
 
 [project.scripts]
 applypilot = "applypilot.cli:app"
