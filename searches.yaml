@@ -61,74 +61,70 @@ locations:
     remote: false
   - location: "Loveland, CO"
     remote: false
-  - location: "Remote"
+  - location: "United States"
     remote: true
 
-location:
-  accept_patterns:
-    - "Boulder"
-    - "Fort Collins"
-    - "Loveland"
-    - "Longmont"
-    - "Broomfield"
-    - "Lafayette"
-    - "Erie"
-    - "Denver"
-    - "Aurora"
-    - "Westminster"
-    - "Arvada"
-    - "Greeley"
-    - "Brighton"
-    - "Englewood"
-    - "Littleton"
-    - "Thornton"
-    - "Colorado"
-    - "CO"
-    - "Remote"
-    - "Anywhere"
-    - "United States"
-    - "US"
-    - "USA"
-    # Remote-friendly US cities — keep if remote
-    - "New York"
-    - "Seattle"
-    - "Los Angeles"
-    - "Chicago"
-    - "San Francisco"
-    - "Austin"
-    - "Atlanta"
-    - "Boston"
-    - "Dallas"
-    - "Houston"
-  reject_patterns:
-    # Hard commute exclusions (onsite only, too far)
-    - "Colorado Springs"
-    - "Pueblo"
-    - "Grand Junction"
-    # International — not relevant
-    - "London"
-    - "India"
-    - "Philippines"
-    - "Canada"
-    - "Toronto"
-    - "Vancouver"
-    - "Sydney"
-    - "Australia"
-    - "United Kingdom"
-    - "Germany"
-    - "France"
+# These keys match what the code actually reads in _load_location_config()
+location_accept:
+  - "Boulder"
+  - "Fort Collins"
+  - "Loveland"
+  - "Longmont"
+  - "Broomfield"
+  - "Lafayette"
+  - "Erie"
+  - "Denver"
+  - "Aurora"
+  - "Westminster"
+  - "Arvada"
+  - "Greeley"
+  - "Brighton"
+  - "Englewood"
+  - "Littleton"
+  - "Thornton"
+  - "Colorado"
+  - ", CO"
+  - "Remote"
+  - "Anywhere"
+  - "United States"
+  - "New York"
+  - "Seattle"
+  - "Los Angeles"
+  - "Chicago"
+  - "San Francisco"
+  - "Austin"
+  - "Atlanta"
+  - "Boston"
+  - "Dallas"
+  - "Houston"
+  - "Phoenix"
+  - "Minneapolis"
+  - "Portland"
+  - "Salt Lake"
 
-country: "USA"
+location_reject_non_remote:
+  - "Colorado Springs"
+  - "Pueblo"
+  - "Grand Junction"
+  - "London"
+  - "India"
+  - "Philippines"
+  - "Sydney"
+  - "Australia"
+  - "United Kingdom"
+  - "Germany"
+  - "France"
 
-boards:
+# Matches cfg.get("sites") key name the code reads
+sites:
   - indeed
   - linkedin
   - glassdoor
-  - google
 
 defaults:
   results_per_site: 100
   hours_old: 72
+  country_indeed: "usa"
 
 exclude_titles:
   - "intern"
@@ -150,4 +146,3 @@ exclude_titles:
   - "warehouse associate"
 
 salary_min: 100000
-
