@@ -89,18 +89,34 @@ location:
     - "United States"
     - "US"
     - "USA"
-  reject_patterns:
-    - "Colorado Springs"
-    - "Pueblo"
-    - "Grand Junction"
+    # Remote-friendly US cities — keep if remote
     - "New York"
     - "Seattle"
     - "Los Angeles"
     - "Chicago"
+    - "San Francisco"
+    - "Austin"
+    - "Atlanta"
+    - "Boston"
+    - "Dallas"
+    - "Houston"
+  reject_patterns:
+    # Hard commute exclusions (onsite only, too far)
+    - "Colorado Springs"
+    - "Pueblo"
+    - "Grand Junction"
+    # International — not relevant
     - "London"
     - "India"
     - "Philippines"
-    - "onsite only outside Colorado"
+    - "Canada"
+    - "Toronto"
+    - "Vancouver"
+    - "Sydney"
+    - "Australia"
+    - "United Kingdom"
+    - "Germany"
+    - "France"
 
 country: "USA"
 
