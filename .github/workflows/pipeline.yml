@@ -1,0 +1,74 @@
+name: ApplyPilot Pipeline
+
+on:
+  schedule:
+    - cron: '0 14 * * *'   # 8am MT daily (14:00 UTC)
+  workflow_dispatch:        # manual trigger from GitHub UI
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -e ".[full]" || pip install -e "."
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Write ApplyPilot config
+        run: |
+          mkdir -p ~/.applypilot
+          cat > ~/.applypilot/config.yaml << 'EOF'
+          llm:
+            provider: openai
+            model: gpt-4o-mini
+            api_key: ${{ secrets.OPENAI_API_KEY }}
+          EOF
+
+      - name: Copy profile and searches config
+        run: |
+          cp profile.json ~/.applypilot/profile.json || true
+          cp searches.yaml ~/.applypilot/searches.yaml || true
+
+      - name: Run discovery
+        run: python -m applypilot run discover
+        continue-on-error: true
+
+      - name: Run enrichment
+        run: python -m applypilot run enrich
+        continue-on-error: true
+
+      - name: Run scoring
+        run: python -m applypilot run score
+        continue-on-error: true
+
+      - name: Run tailoring (score >= 7)
+        run: python -m applypilot run tailor --min-score 7
+        continue-on-error: true
+
+      - name: Run cover letters (score >= 7)
+        run: python -m applypilot run cover --min-score 7
+        continue-on-error: true
+
+      - name: Upload database artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: applypilot-db
+          path: ~/.applypilot/applypilot.db
+          retention-days: 7
+
+      - name: Upload output artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: applypilot-output
+          path: ~/.applypilot/output/
+          retention-days: 7
