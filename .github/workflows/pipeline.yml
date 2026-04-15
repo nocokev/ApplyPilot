@@ -9,6 +9,9 @@ jobs:
   run-pipeline:
     runs-on: ubuntu-latest
 
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -21,21 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -e ".[full]" || pip install -e "."
-          pip install playwright
-          playwright install chromium --with-deps
-
-      - name: Write ApplyPilot config
-        run: |
-          mkdir -p ~/.applypilot
-          cat > ~/.applypilot/config.yaml << EOF
-          llm:
-            provider: openai
-            model: gpt-4o-mini
-            api_key: ${{ secrets.OPENAI_API_KEY }}
-          EOF
 
       - name: Copy profile and searches config
         run: |
+          mkdir -p ~/.applypilot
           cp profile.json ~/.applypilot/profile.json || true
           cp searches.yaml ~/.applypilot/searches.yaml || true
 
