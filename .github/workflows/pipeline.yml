@@ -5,12 +5,17 @@ on:
     - cron: "0 14 * * *"   # 8am MT daily (14:00 UTC)
   workflow_dispatch:        # manual trigger from GitHub UI
 
+concurrency:
+  group: applypilot-pipeline
+  cancel-in-progress: false  # let current run finish, don't stack
+
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
 
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LLM_MODEL: gpt-4o-mini
 
     steps:
       - name: Checkout repo
@@ -25,11 +30,24 @@ jobs:
         run: |
           pip install -e ".[full]" || pip install -e "."
 
-      - name: Copy profile and searches config
+      - name: Write profile and searches config from secrets
+        env:
+          APPLYPILOT_PROFILE_JSON: ${{ secrets.APPLYPILOT_PROFILE_JSON }}
+          APPLYPILOT_SEARCHES_YAML: ${{ secrets.APPLYPILOT_SEARCHES_YAML }}
         run: |
           mkdir -p ~/.applypilot
-          cp profile.json ~/.applypilot/profile.json || true
-          cp searches.yaml ~/.applypilot/searches.yaml || true
+          if [ -n "$APPLYPILOT_PROFILE_JSON" ]; then
+            echo "$APPLYPILOT_PROFILE_JSON" > ~/.applypilot/profile.json
+            echo "profile.json written from secret"
+          else
+            echo "WARNING: APPLYPILOT_PROFILE_JSON secret not set"
+          fi
+          if [ -n "$APPLYPILOT_SEARCHES_YAML" ]; then
+            echo "$APPLYPILOT_SEARCHES_YAML" > ~/.applypilot/searches.yaml
+            echo "searches.yaml written from secret"
+          else
+            echo "WARNING: APPLYPILOT_SEARCHES_YAML secret not set"
+          fi
 
       - name: Run discovery
         run: python -m applypilot run discover
